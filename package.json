@@ -1,0 +1,16 @@
+{
+  "name": "itil-servicedesk",
+  "version": "3.0.0",
+  "description": "ITIL-Aligned MERN Service Desk — Stephen Adu Kwarteng",
+  "private": true,
+  "scripts": {
+    "dev":         "concurrently \"npm run backend\" \"npm run frontend\"",
+    "backend":     "cd backend && npm run dev",
+    "frontend":    "cd frontend && npm start",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "build":       "cd frontend && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

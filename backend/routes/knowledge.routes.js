@@ -1,0 +1,13 @@
+const express = require('express');
+const { getArticles, getArticle, createArticle, updateArticle, deleteArticle, voteArticle, getAiSuggestionForTicket } = require('../controllers/knowledge.controller');
+const { protect, authorize } = require('../middleware/auth.middleware');
+const router = express.Router();
+router.use(protect);
+router.get('/', getArticles);
+router.post('/', authorize('admin','tier1','tier2','tier3'), createArticle);
+router.get('/:id', getArticle);
+router.patch('/:id', authorize('admin','tier1','tier2','tier3'), updateArticle);
+router.delete('/:id', authorize('admin'), deleteArticle);
+router.post('/:id/vote', voteArticle);
+router.get('/ai/suggest/:ticketId', authorize('admin','tier1','tier2','tier3'), getAiSuggestionForTicket);
+module.exports = router;

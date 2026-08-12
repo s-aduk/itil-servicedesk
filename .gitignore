@@ -1,0 +1,27 @@
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Environment variables — NEVER commit
+backend/.env
+.env
+
+# Frontend build
+frontend/build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Test output
+coverage/
+playwright-report/
+test-results/

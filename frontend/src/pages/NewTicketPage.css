@@ -1,0 +1,128 @@
+.new-ticket-page { animation: fadeIn 0.3s ease; }
+
+.new-ticket-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 20px;
+  align-items: start;
+}
+
+.new-ticket-form { }
+
+.form-hint {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-align: right;
+  display: block;
+  margin-top: 3px;
+}
+
+/* Category selector */
+.category-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 12px 14px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  text-align: left;
+  transition: all var(--transition);
+  cursor: pointer;
+}
+.category-card:hover {
+  border-color: rgba(255,255,255,0.15);
+  background: var(--bg-hover);
+}
+.category-card.selected {
+  border-color: var(--accent-dim);
+  background: var(--accent-glow);
+}
+
+.cat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cat-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.cat-priority {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.cat-desc {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+/* ITIL panel */
+.itil-card, .preview-card {
+  margin-bottom: 12px;
+}
+.itil-title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.itil-matrix {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.matrix-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.matrix-def {
+  font-size: 0.8rem;
+  color: var(--text-primary);
+}
+.matrix-ex {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin-top: 2px;
+}
+
+.preview-priority {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.preview-note {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+.preview-note strong { color: var(--text-primary); }
+
+@media (max-width: 900px) {
+  .new-ticket-layout { grid-template-columns: 1fr; }
+  .itil-panel { order: -1; }
+  .itil-matrix { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+}
