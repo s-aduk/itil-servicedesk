@@ -87,7 +87,7 @@ Choose **one** of the two options below:
      mongodb+srv://servicedesk_user:<password>@cluster0.abc123.mongodb.net/?retryWrites=true&w=majority
      ```
    - Replace `<password>` with your actual password
-     ```
+     
 
 ---
 
