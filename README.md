@@ -87,9 +87,6 @@ Choose **one** of the two options below:
      mongodb+srv://servicedesk_user:<password>@cluster0.abc123.mongodb.net/?retryWrites=true&w=majority
      ```
    - Replace `<password>` with your actual password
-   - Add your database name before the `?`:
-     ```
-     mongodb+srv://servicedesk_user:yourpassword@cluster0.abc123.mongodb.net/itil_servicedesk?retryWrites=true&w=majority
      ```
 
 ---
