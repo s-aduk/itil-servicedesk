@@ -1,455 +1,466 @@
-# ITIL-Aligned Service Desk
+# ���� �� �� 🎖������️ ITIL-Aligned Service Desk
 
-![ITIL Service Desk Hero](../assets/readme/hero.svg)
+![ITIL Service Desk Hero](assets/readme/hero.svg)
 
-A production-grade MERN stack service desk for banking operations environments. Covers ITIL incident management, tiered escalation, SLA enforcement, knowledge base, audit logging, and a full analytics + reporting dashboard.
+> **A production-grade MERN stack service desk for banking operations environments.**  
+> Implements ITIL incident management, tiered escalation, SLA enforcement, knowledge base, audit logging, and full analytics + reporting dashboard.
 
-**Stack:** React 18 · Redux Toolkit · Express 4 · Mongoose 8 · MongoDB
-
----
-
-## Overview
-
-This enterprise-grade service desk application implements ITIL best practices for banking and financial services environments. Built with a robust MERN stack architecture, it provides comprehensive incident management capabilities with automated SLA tracking, multi-tier escalation, and detailed analytics for service delivery optimization.
-
-## Key Features
-
-- **ITIL-Compliant Incident Management** - Full lifecycle tracking from creation to resolution
-- **Automated SLA Enforcement** - Real-time breach monitoring with priority-based targets
-- **Multi-Tier Escalation** - Automatic routing based on SLA timelines and impact
-- **Knowledge Base** - Searchable article repository for faster resolution
-- **Audit Logging** - Immutable, blockchain-style tracking of all actions
-- **Analytics Dashboard** - Visual reporting on ticket volume, agent performance, and SLA compliance
-- **Role-Based Access Control** - Four-tier permission system (end_user, tier1, tier2, tier3, admin)
-- **Email Integration** - Automated notifications for ticket updates and escalations
-- **RESTful API** - Comprehensive backend services with JWT authentication
-- **Production Ready** - Docker-configured, CI/CD pipeline, and deployment guides
+![Build](https://img.shields.io/badge/build-passing-brightgreen)
+![Tests](https://img.shields.io/badge/tests-passing-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen)
+![React](https://img.shields.io/badge/react-18.2-blue)
 
 ---
 
-## Quick Start (Local — 5 steps)
+## ���� �� �� 🏆 Key Features
 
-### Prerequisites
-
-| Tool | Version | Install |
-|------|---------|---------|
-| Node.js | 18+ | https://nodejs.org |
-| npm | 9+ | bundled with Node |
-| MongoDB | 6+ | https://www.mongodb.com/try/download/community **or** MongoDB Atlas (cloud) |
+<table>
+<tr>
+<td>������✅ <strong>ITIL-Compliant Incident Management</strong></td>
+<td>������⚡ <strong>Automated SLA Enforcement</strong></td>
+</tr>
+<tr>
+<td>Full lifecycle tracking from creation to resolution</td>
+<td>Real-time breach monitoring with priority-based targets</td>
+</tr>
+<tr>
+<td>���������🔄 <strong>Multi-Tier Escalation</strong></td>
+<td>���������📚 <strong>Knowledge Base</strong></td>
+</tr>
+<tr>
+<td>Automatic routing based on SLA timelines</td>
+<td>Searchable article repository for faster resolution</td>
+</tr>
+<tr>
+<td>���������🔒 <strong>Audit Logging</strong></td>
+<td>���������📊 <strong>Analytics Dashboard</strong></td>
+</tr>
+<tr>
+<td>Immutable, blockchain-style tracking of all actions</td>
+<td>Visual reporting on ticket volume, agent performance, and SLA compliance</td>
+</tr>
+<tr>
+<td>���������👥 <strong>Role-Based Access Control</strong></td>
+<td>���������📧 <strong>Email Integration</strong></td>
+</tr>
+<tr>
+<td>Four-tier permission system (end_user → admin)</td>
+<td>Automated notifications for ticket updates and escalations</td>
+</tr>
+<tr>
+<td>���������🔌 <strong>RESTful API</strong></td>
+<td>���������🚀 <strong>Production Ready</strong></td>
+</tr>
+<td>Comprehensive backend services with JWT authentication</td>
+<td>Docker-configured, CI/CD pipeline, and deployment guides</td>
+</tr>
+</table>
 
 ---
 
-### Step 1 — Clone or extract the project
+## ���� �� �� 💻 Tech Stack
+
+<table>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+<th>Version</th>
+</tr>
+<tr>
+<td>Language</td>
+<td>JavaScript (Node.js)</td>
+<td>18+</td>
+</tr>
+<tr>
+<td>Backend Framework</td>
+<td>Express.js</td>
+<td>4.18.3</td>
+</tr>
+<tr>
+<td>Frontend Framework</td>
+<td>React</td>
+<td>18.2.0</td>
+</tr>
+<tr>
+<td>State Management</td>
+<td>Redux Toolkit</td>
+<td>2.2.1</td>
+</tr>
+<tr>
+<td>Database</td>
+<td>MongoDB (via Mongoose)</td>
+<td>8.2.2</td>
+</tr>
+<tr>
+<td>Build Tool</td>
+<td>npm-scripts</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Testing</td>
+<td>Jest (backend), React Testing Library (frontend)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>CI/CD</td>
+<td>GitHub Actions</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Deployment</td>
+<td>Vercel (frontend), Railway/Render (backend)</td>
+<td>-</td>
+</tr>
+</table>
+
+---
+
+## ���� �� �� 💻 Quick Start (Local — 5 steps)
+
+### ���� �� �� 🔧 Prerequisites
+
+<table>
+<tr>
+<th>Tool</th>
+<th>Version</th>
+<th>Install</th>
+</tr>
+<tr>
+<td>Node.js</td>
+<td>18+</td>
+<td>https://nodejs.org</td>
+</tr>
+<tr>
+<td>npm</td>
+<td>9+</td>
+<td>bundled with Node</td>
+</tr>
+<tr>
+<td>MongoDB</td>
+<td>6+</td>
+<td><a href="https://www.mongodb.com/try/download/community">Community</a> or <a href="https://www.mongodb.com/try/download/community">MongoDB Atlas</a></td>
+</tr>
+</table>
+
+### 1������️������⃣ Clone the project
 
 ```bash
-# If using git:
 git clone https://github.com/s-aduk/itil-servicedesk.git
-cd itil-servicedesk
-
-# If extracted from ZIP:
 cd itil-servicedesk
 ```
 
-### Step 2 — Install all dependencies
+### 2������️������⃣ Install dependencies
 
 ```bash
 npm run install:all
 ```
 
-This installs the root, backend, and frontend dependencies in one command.
+### 3������️������⃣ Set up database
 
-### Step 3 — Set up the database
+Choose **local** (recommended) or **Atlas**:
 
-Choose **one** of the two options below:
+**Local:**
+```bash
+# Install & start MongoDB
+brew install mongodb-community # macOS
+# or: https://www.mongodb.com/try/download/community
 
-#### Option A — Local MongoDB (recommended for development)
+# Start server
+mongod --dbpath /usr/local/var/mongodb
+```
 
-1. Download and install MongoDB Community Edition: https://www.mongodb.com/try/download/community
-2. Start MongoDB:
-   - **macOS/Linux:**
-     ```bash
-     mongod --dbpath /usr/local/var/mongodb
-     # or if installed as a service:
-     brew services start mongodb-community
-     ```
-   - **Windows:** Start the MongoDB service from Services, or run:
-     ```bash
-     "C:\Program Files\MongoDB\Server\6.0\bin\mongod.exe" --dbpath C:\data\db
-     ```
-3. Verify it's running:
-   ```bash
-   mongosh
-   # should connect to mongodb://localhost:27017
-   ```
-4. No database creation needed — MongoDB creates `itil_servicedesk` automatically on first write.
+**Atlas:** Follow [MongoDB Atlas setup guide](https://www.mongodb.com/basics/mongodb-atlas-tutorial)
 
-#### Option B — MongoDB Atlas (free cloud database)
-
-1. Go to https://cloud.mongodb.com and create a free account
-2. Click **Build a Database** → choose **M0 Free Tier** → select your nearest region
-3. Create a database user:
-   - Go to **Security → Database Access** → **Add New Database User**
-   - Username: `servicedesk_user` · Password: create a strong password
-   - Role: **Atlas Admin** (or "Read and Write to any database")
-   - Click **Add User**
-4. Whitelist your IP:
-   - Go to **Security → Network Access** → **Add IP Address**
-   - For development: click **Allow Access from Anywhere** (`0.0.0.0/0`)
-   - For production: add only your server IP
-5. Get your connection string:
-   - Go to **Deployment → Database** → click **Connect** on your cluster
-   - Choose **Connect your application** → Driver: **Node.js** → Version: **5.5 or later**
-   - Copy the connection string — it looks like:
-     ```
-     mongodb+srv://servicedesk_user:<password>@cluster0.abc123.mongodb.net/?retryWrites=true&w=majority
-     ```
-   - Replace `<password>` with your actual password
-
-### Step 4 — Configure environment variables
+### 4������️������⃣ Configure environment
 
 ```bash
 cd backend
 cp .env.example .env
+# Edit .env with your MongoDB URI and JWT secrets
 ```
 
-Open `backend/.env` in your editor and fill in the values:
-
-```env
-NODE_ENV=development
-PORT=5000
-
-# Paste your MongoDB URI here (local or Atlas):
-MONGODB_URI=mongodb://localhost:27017/itil_servicedesk
-
-# Generate secure JWT secrets (run this command twice, use different outputs):
-# node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
-JWT_SECRET=paste_your_64_char_random_string_here
-JWT_REFRESH_SECRET=paste_a_different_64_char_random_string_here
-JWT_EXPIRES_IN=15m
-JWT_REFRESH_EXPIRES_IN=7d
-
-# Leave as-is for local development:
-CLIENT_URL=http://localhost:3000
-
-# Optional — leave blank to skip email notifications:
-ANTHROPIC_API_KEY=sk-ant-your-key-here
-```
-
-### Step 5 — Run the project
+### 5������️������⃣ Run the application
 
 ```bash
-# From the project root:
+# From project root:
 npm run dev
+
+# Access:
+# http://localhost:3000 (frontend)
+# http://localhost:5000 (backend API)
 ```
-
-This starts both servers concurrently:
-- **Backend API:** http://localhost:5000
-- **Frontend app:** http://localhost:3000
-
-Open http://localhost:3000 in your browser.
-
-### Step 6 — Create your first admin user
-
-Register a user via the app's register page, then promote them to admin in MongoDB.
-
-**Using MongoDB Compass (GUI):**
-1. Download MongoDB Compass: https://www.mongodb.com/try/download/compass
-2. Connect to `mongodb://localhost:27017` (local) or your Atlas URI
-3. Open `itil_servicedesk` → `users`
-4. Find your user → click **Edit** → change `role` from `end_user` to `admin` → **Update**
-
-**Using mongosh (terminal):**
-```bash
-mongosh
-use itil_servicedesk
-db.users.updateOne(
-  { email: "your@email.com" },
-  { $set: { role: "admin" } }
-)
-```
-
-**Available roles:**
-| Role | Description |
-|------|-------------|
-| `end_user` | Creates and tracks own tickets |
-| `tier1` | Front-line support — handles tickets, adds notes |
-| `tier2` | Second-line support — handles escalated tickets |
-| `tier3` | Specialist support — handles critical escalations |
-| `admin` | Full access — user management, reports, audit |
 
 ---
 
-## Production Deployment
+## ���� �� �� 👨‍���💻 Developer Highlights
 
-### Architecture
+- **Clean Architecture:** Separation of concerns with controllers, services, and models
+- **Type Safety:** Runtime validation with express-validator and MongoDB schemas
+- **Performance:** Lean queries, proper indexing, and aggregation pipelines for reports
+- **Security:** Helmet, mongo-sanitize, rate limiting, and DOMPurify for XSS protection
+- **Observability:** Comprehensive audit logging with blockchain-style hash chaining
+- **Scalability:** Designed for horizontal scaling with stateless services
+- **Maintainability:** Consistent error handling and standardized API response format
 
-| Component | Platform | Notes |
-|-----------|----------|-------|
-| Frontend | Vercel | Free tier, auto-deploy from GitHub |
-| Backend | Railway or Render | Free tier available |
-| Database | MongoDB Atlas | M0 free tier for low traffic; M10+ for production SLA |
+---
 
-### Deploy to Production
+## ���� �� �� 🚀 Production Deployment
+
+### ���� �� �� 🏗������️ Architecture
+
+<table>
+<tr>
+<th>Component</th>
+<th>Platform</th>
+<th>Notes</th>
+</tr>
+<tr>
+<td>Frontend</td>
+<td>Vercel</td>
+<td>Free tier, auto-deploy from GitHub</td>
+</tr>
+<tr>
+<td>Backend</td>
+<td>Railway or Render</td>
+<td>Free tier available</td>
+</tr>
+<tr>
+<td>Database</td>
+<td>MongoDB Atlas</td>
+<td>M0 free tier for low traffic; M10+ for production SLA</td>
+</tr>
+</table>
+
+### ���� �� �� 📦 Deploy to Production
 
 #### 1. MongoDB Atlas (production)
 
-Follow the same Atlas steps above, but:
-- Use **M10 cluster** instead of M0 (M0 has no uptime SLA)
-- Under Network Access, add only your Railway/Render server IP (not 0.0.0.0/0)
-- Enable **Point-in-Time Recovery** under Backup
+Use **M10+ cluster** for production SLA, restrict network access to backend IP only.
 
-#### 2. Deploy Backend to Railway
+#### 2. Deploy Backend
 
-1. Go to https://railway.app → sign in with GitHub
-2. **New Project** → **Deploy from GitHub repo**
-3. Select your repo → set **Root Directory** to `backend`
-4. Under **Variables**, add all values from your `backend/.env`:
-   - `NODE_ENV` = `production`
-   - `MONGODB_URI` = your Atlas connection string
-   - `JWT_SECRET` = your secret
-   - `JWT_REFRESH_SECRET` = your secret
-   - `CLIENT_URL` = your Vercel frontend URL (fill in after Vercel deploy)
-   - `PORT` = `5000`
-5. Railway auto-runs `npm start` → `node index.js`
-6. Note your Railway URL: `https://your-app.up.railway.app`
+**Railway:**
+1. Connect GitHub repo
+2. Set root directory to `backend`
+3. Add environment variables from `.env`
+4. Deploy - Railway runs `npm start`
 
-**Alternative: Render**
-1. https://render.com → **New Web Service**
+**Render:**
+1. Create new Web Service
 2. Connect repo, root directory = `backend`
-3. Build command: `npm install` · Start command: `node index.js`
-4. Add all env vars in the Render dashboard
+3. Build: `npm install`, Start: `node index.js`
+4. Add environment variables
 
-#### 3. Deploy Frontend to Vercel
+#### 3. Deploy Frontend
 
-1. Go to https://vercel.com → sign in with GitHub
-2. **Add New Project** → import your repo
-3. Set **Root Directory** to `frontend`
-4. Add environment variable:
-   - `REACT_APP_API_URL` = your Railway backend URL (if you switch from proxy to explicit URL)
-   
-   > **Note:** The frontend uses a proxy in development (`"proxy": "http://localhost:5000"` in `frontend/package.json`). For production, Vercel needs to be told where the backend is. Either:
-   > - **Option A (easiest):** Use Vercel Rewrites — add `vercel.json` to the `frontend/` folder:
-   >   ```json
-   >   {
-   >     "rewrites": [
-   >       { "source": "/api/:path*", "destination": "https://your-backend.up.railway.app/api/:path*" }
-   >     ]
-   >   }
-   >   ```
-   > - **Option B:** Update `frontend/src/services/api.js` — change `baseURL: '/api'` to `baseURL: process.env.REACT_APP_API_URL || '/api'`
-
-5. Click **Deploy**
-6. Copy your Vercel URL → go back to Railway → update `CLIENT_URL` to this URL
+**Vercel:**
+1. Import GitHub repo
+2. Set root directory to `frontend`
+3. Add `REACT_APP_API_URL` environment variable
+4. Deploy - Vercel runs `npm run build`
 
 #### 4. Update CORS
 
-Once both are deployed, update `CLIENT_URL` in Railway to your Vercel frontend URL exactly (e.g. `https://your-app.vercel.app`). This ensures CORS only allows your frontend.
+Set `CLIENT_URL` in backend to exact Vercel frontend URL for secure CORS policy.
 
 ---
 
-## Production Checklist
+## ���� � �� ✅ Production Checklist
 
-- [ ] `NODE_ENV=production` set on backend
+- [ ] `NODE_ENV=production` on backend
 - [ ] `MONGODB_URI` points to Atlas M10+ cluster
-- [ ] `JWT_SECRET` and `JWT_REFRESH_SECRET` are 64+ char random strings
-- [ ] `CLIENT_URL` matches your Vercel URL exactly
-- [ ] Network Access on Atlas is locked to server IP only
-- [ ] Health check passes: `GET https://your-backend.railway.app/api/health`
-- [ ] Login works end-to-end
-- [ ] Create a test ticket and verify SLA deadline is set
-- [ ] Promote first user to admin via Atlas
-- [ ] Reports dashboard loads (admin/tier roles only)
-- [ ] No `.env` files or secrets in version control
+- [ ] `JWT_SECRET` & `JWT_REFRESH_SECRET` are 64+ char random strings
+- [ ] `CLIENT_URL` matches Vercel URL exactly
+- [ ] Atlas network access restricted to backend IP only
+- [ ] Health check: `GET https://backend-url/api/health` returns 200
+- [ ] End-to-end login flow functional
+- [ ] SLA tracking verified with test ticket
+- [ ] First user promoted to admin role
+- [ ] Reports dashboard accessible to managers/admins
+- [ ] No `.env` files or secrets in repository
 
 ---
 
-## Project Structure
+## ���� �� �� 📁 Project Structure
 
 ```
 itil-servicedesk/
 │
-├── backend/                         ← Express API (port 5000)
-│   ├── config/
-│   │   ├── database.js              MongoDB connection
-│   │   ├── sla.config.js            SLA targets & escalation thresholds
-│   │   └── slaScheduler.js          60s interval SLA checker
-│   ├── controllers/                 Request handlers
-│   │   ├── auth.controller.js
-│   │   ├── ticket.controller.js
-│   │   ├── user.controller.js
-│   │   ├── analytics.controller.js
-│   │   ├── report.controller.js     ← Phase 6 (new)
-│   │   ├── audit.controller.js
-│   │   ├── knowledge.controller.js
-│   │   └── notification.controller.js
-│   ├── middleware/
-│   │   ├── auth.middleware.js        JWT verify + RBAC
-│   │   └── error.middleware.js       Global error handler
-│   ├── models/
-│   │   ├── user.model.js
-│   │   ├── incident.model.js         Ticket model with SLA virtuals
-│   │   ├── auditLog.model.js         Immutable + blockchain-style hash chain
-│   │   ├── knowledgeArticle.model.js
-│   │   └── notification.model.js
-│   ├── routes/
-│   │   ├── auth.routes.js
-│   │   ├── ticket.routes.js
-│   │   ├── user.routes.js
-│   │   ├── analytics.routes.js
-│   │   ├── report.routes.js         ← Phase 6 (new)
-│   │   ├── audit.routes.js
-│   │   ├── knowledge.routes.js
-│   │   └── notification.routes.js
-│   ├── services/
-│   │   ├── auth.service.js
-│   │   ├── ticket.service.js
-│   │   ├── sla.service.js           SLA checks + auto-escalation
-│   │   ├── analytics.service.js     Aggregation pipelines
-│   │   ├── ai.service.js            Anthropic Claude API integration
-│   │   ├── knowledge.service.js
-│   │   └── notification.service.js
-│   ├── app.js                       Express app + middleware stack
-│   ├── index.js                     Entry point + env validation
-│   ├── package.json
-│   └── .env.example                 ← Copy to .env and fill in
+├── backend/                  ← Express API (port 5000)
+│   ├── config/               → Configuration files
+│   ├── controllers/          → Request handlers (thin layer)
+│   ├── middleware/           → Custom middleware (auth, errors)
+│   ├── models/               → Mongoose schemas
+│   ├── routes/               → API route definitions
+│   ├── services/             → Business logic layer
+│   └── utils/                → Helper functions
 │
-├── frontend/                        ← React app (port 3000)
-│   ├── public/index.html
-│   └── src/
-│       ├── pages/
-│       │   ├── LoginPage.js
-│       │   ├── RegisterPage.js
-│       │   ├── DashboardPage.js
-│       │   ├── TicketsPage.js
-│       │   ├── TicketDetailPage.js
-│       │   ├── NewTicketPage.js
-│       │   ├── AnalyticsPage.js
-│       │   ├── ReportsPage.js       ← Phase 6 (new)
-│       │   ├── AuditPage.js
-│       │   ├── KnowledgePage.js
-│       │   ├── ArticlePage.js
-│       │   └── NewArticlePage.js
-│       ├── components/
-│       │   ├── AppLayout.js         Navigation + sidebar
-│       │   ├── NotificationBell.js
-│       │   └── AiSuggestionPanel.js
-│       ├── store/                   Redux Toolkit slices
-│       ├── services/api.js          Axios + JWT interceptor
-│       └── App.js                   Routes
+├── frontend/                 ← React app (port 3000)
+│   ├── public/               → Static assets
+│   └── src/                  → React source
+│       ├── components/       → Reusable UI components
+│       ├── pages/            → Page views
+│       ├── store/            → Redux Toolkit slices
+│       ├── services/         → API service wrappers
+│       └── App.js            → Main app with routing
 │
-├── docs/
+├── docs/                     → Documentation
 │   ├── TECHNICAL_DOCS.md
 │   ├── CLAUDE.md
 │   └── PHASE_6.md
 │
-├── .github/workflows/deploy.yml    CI/CD pipeline
-├── package.json                    Root scripts (dev, install:all)
-├── .gitignore
-�└── README.md
+├── .github/workflows/        → CI/CD pipeline
+├── .gitignore                → Git ignore rules
+├── package.json              → Root scripts
+�└── README.md                 → This file
 ```
 
 ---
 
-## API Reference
+## ���� �� �� 🔌 API Reference
 
-### Auth
-
-| Method | Endpoint | Body | Description |
-|--------|----------|------|-------------|
-| POST | `/api/auth/register` | `{name, email, password, role?, department?}` | Register |
-| POST | `/api/auth/login` | `{email, password}` | Login |
-| POST | `/api/auth/refresh` | `{refreshToken}` | Refresh access token |
-| GET | `/api/auth/me` | — | Get current user |
-
-### Tickets
-
-| Method | Endpoint | Role | Description |
-|--------|----------|------|-------------|
-| GET | `/api/tickets` | all | List tickets (end_user sees own only) |
-| GET | `/api/tickets/dashboard` | all | Dashboard stats |
-| GET | `/api/tickets/:id` | all | Ticket detail |
-| POST | `/api/tickets` | all | Create ticket |
-| PATCH | `/api/tickets/:id` | tier1+ | Update ticket |
-| POST | `/api/tickets/:id/notes` | all | Add note |
-| POST | `/api/tickets/:id/escalate` | tier1+ | Escalate ticket |
-| DELETE | `/api/tickets/:id` | admin | Delete ticket |
-
-### Reports (Phase 6 — tier1+)
+### ���� �� �� 🔐 Auth Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | `/api/reports/sla-compliance` | Full analytics overview |
-| GET | `/api/reports/ticket-volume` | SLA breach rate by priority |
-| GET | `/api/reports/agent-performance` | Volume over time |
-| GET | `/api/reports/category-breakdown` | Per-agent KPIs |
-| GET | `/api/reports/audit-log/export` | Tickets by category |
-|  |  | Download audit log (CSV/JSON) |
+| POST | `/api/auth/register` | User registration |
+| POST | `/api/auth/login` | User login |
+| POST | `/api/auth/refresh` | Token refresh |
+| GET | `/api/auth/me` | Get current user |
 
-All report endpoints support `?from=ISO_DATE&to=ISO_DATE`.
+*Request/Response format:*
+```json
+{ "success": true, "data": {}, "message": "..." }
+{ "success": false, "error": "...", "message": "..." }
+```
 
-### Other
+### ���� �� �� 🎫 Ticket Endpoints
+
+| Method | Endpoint | Role | Description |
+|--------|----------|------|-------------|
+| GET | `/api/tickets` | all | List tickets (user-scoped) |
+| GET | `/api/tickets/:id` | all | Get ticket details |
+| POST | `/api/tickets` | all | Create new ticket |
+| PATCH | `/api/tickets/:id` | tier1+ | Update ticket |
+| POST | `/api/tickets/:id/notes` | all | Add note to ticket |
+| POST | `/api/tickets/:id/escalate` | tier1+ | Escalate ticket |
+| DELETE | `/api/tickets/:id` | admin | Delete ticket |
+
+### ���� �� �� 📊 Reports (Manager/Admin)
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/reports/sla-compliance` | SLA breach rate by priority |
+| GET | `/api/reports/ticket-volume` | Ticket volume over time |
+| GET | `/api/reports/agent-performance` | Agent performance metrics |
+| GET | `/api/reports/category-breakdown` | Ticket breakdown by category |
+| GET | `/api/reports/audit-log/export` | Export audit log (CSV/JSON) |
+
+*All support date filtering: `?from=YYYY-MM-DD&to=YYYY-MM-DD`*
+
+### ���� �� �� 📋 Other Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | `/api/analytics` | Analytics data |
-| GET | `/api/audit` | Audit log |
+| GET | `/api/audit` | Immutable audit log |
 | GET | `/api/audit/verify-chain` | Verify audit log integrity |
 | GET | `/api/notifications` | User notifications |
 | GET | `/api/knowledge` | Knowledge base articles |
-| GET | `/api/health` | Health check |
+| GET | `/api/health` | Health check endpoint |
 
 ---
 
-## SLA Targets
+## ���� �� �� ⏱������️ SLA Targets
 
-| Priority | Response Time | Resolution Time |
-|----------|--------------|-----------------|
-| Critical | 15 minutes | 1 hour |
-| High | 30 minutes | 4 hours |
-| Medium | 2 hours | 24 hours |
-| Low | 8 hours | 3 days |
+<table>
+<tr>
+<th>Priority</th>
+<th>Response Time</th>
+<th>Resolution Time</th>
+</tr>
+<tr>
+<td>���� Critical</td>
+<td>15 min</td>
+<td>1 hour</td>
+</tr>
+<tr>
+<td>������ High</td>
+<td>30 min</td>
+<td>4 hours</td>
+</tr>
+<tr>
+<td>���� Medium</td>
+<td>2 hours</td>
+<td>24 hours</td>
+</tr>
+<tr>
+<td>���� Low</td>
+<td>8 hours</td>
+<td>3 days</td>
+</tr>
+</table>
 
-SLA checks run every 60 seconds. At 75% elapsed → Tier 2 escalation. At 90% elapsed → Tier 3 escalation.
+*Checks every 60s: 75% → Tier 2 escalation, 90% → Tier 3 escalation*
 
 ---
 
-## Common Issues
+## ���� �� �� 🐛 Common Issues & Fixes
 
-**"Missing required environment variables"**
-→ You haven't created `backend/.env`. Run `cp backend/.env.example backend/.env` then fill in `MONGODB_URI`, `JWT_SECRET`, `JWT_REFRESH_SECRET`.
-
-**"MongoDB connection error: ECONNREFUSED"**
-→ MongoDB is not running locally. Start it with `brew services start mongodb-community` (macOS) or start the service on Windows.
-
-**"MongoDB connection error: bad auth"**
-→ Wrong username/password in your Atlas connection string. Check the `MONGODB_URI` in your `.env`.
-
-**Frontend shows blank page / "Cannot GET /"**
-→ Make sure you're running `npm run dev` from the project root, not from inside `backend/` or `frontend/`.
-
-**"Network Error" on API calls**
-→ Backend isn't running, or the proxy isn't set. Verify `backend/.env` exists and `npm run dev` started both servers.
-
-**Port 5000 already in use**
-→ Change `PORT=5001` in `backend/.env` and update the proxy in `frontend/package.json` to `"proxy": "http://localhost:5001"`.
+<table>
+<tr>
+<th>Issue</th>
+<th>Solution</th>
+</tr>
+<tr>
+<td>������❌ Missing env vars</td>
+<td>Create `backend/.env` from `.env.example`</td>
+</tr>
+<tr>
+<td>������❌ MongoDB conn refused</td>
+<td>Start MongoDB: `brew services start mongodb-community`</td>
+</tr>
+<tr>
+<td>������❌ MongoDB bad auth</td>
+<td>Verify `MONGODB_URI` credentials in `.env`</td>
+</tr>
+<tr>
+<td>������❌ Frontend blank page</td>
+<td>Run `npm run dev` from project root</td>
+</tr>
+<tr>
+<td>������❌ Network error on API</td>
+<td>Confirm backend running & proxy configured</td>
+</tr>
+<tr>
+<td>������❌ Port 5000 in use</td>
+<td>Change `PORT` in `.env` & update frontend proxy</td>
+</tr>
+</table>
 
 ---
 
-## Development Commands
+## ���� �� �� 💻 Development Workflow
 
 ```bash
-# Backend dev
-cd backend && npm run dev
+# Backend development
+cd backend && npm run dev    # Uses nodemon for hot reload
 
-# Frontend dev
-cd frontend && npm start
+# Frontend development  
+cd frontend && npm start     # React dev server on localhost:3000
 
-# Run backend tests
-cd backend && npm test
+# Run tests
+cd backend && npm test       # Jest backend tests
+cd frontend && npm test      # React Testing Library frontend tests
 
-# Run frontend tests
-cd frontend && npm test
-
-# Check for security vulnerabilities
+# Security audit
 npm audit --audit-level=moderate
+
+# Database access (local)
+mongosh                      # Connect to local MongoDB
 ```
+
+---
+
+*Built with ���� �� by Stephen Adu Kwarteng for banking-grade IT service management.*
