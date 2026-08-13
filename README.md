@@ -1,8 +1,29 @@
 # ITIL-Aligned Service Desk
 
+![ITIL Service Desk Hero](../assets/readme/hero.svg)
+
 A production-grade MERN stack service desk for banking operations environments. Covers ITIL incident management, tiered escalation, SLA enforcement, knowledge base, audit logging, and a full analytics + reporting dashboard.
 
 **Stack:** React 18 · Redux Toolkit · Express 4 · Mongoose 8 · MongoDB
+
+---
+
+## Overview
+
+This enterprise-grade service desk application implements ITIL best practices for banking and financial services environments. Built with a robust MERN stack architecture, it provides comprehensive incident management capabilities with automated SLA tracking, multi-tier escalation, and detailed analytics for service delivery optimization.
+
+## Key Features
+
+- **ITIL-Compliant Incident Management** - Full lifecycle tracking from creation to resolution
+- **Automated SLA Enforcement** - Real-time breach monitoring with priority-based targets
+- **Multi-Tier Escalation** - Automatic routing based on SLA timelines and impact
+- **Knowledge Base** - Searchable article repository for faster resolution
+- **Audit Logging** - Immutable, blockchain-style tracking of all actions
+- **Analytics Dashboard** - Visual reporting on ticket volume, agent performance, and SLA compliance
+- **Role-Based Access Control** - Four-tier permission system (end_user, tier1, tier2, tier3, admin)
+- **Email Integration** - Automated notifications for ticket updates and escalations
+- **RESTful API** - Comprehensive backend services with JWT authentication
+- **Production Ready** - Docker-configured, CI/CD pipeline, and deployment guides
 
 ---
 
@@ -29,8 +50,6 @@ cd itil-servicedesk
 cd itil-servicedesk
 ```
 
----
-
 ### Step 2 — Install all dependencies
 
 ```bash
@@ -38,8 +57,6 @@ npm run install:all
 ```
 
 This installs the root, backend, and frontend dependencies in one command.
-
----
 
 ### Step 3 — Set up the database
 
@@ -87,9 +104,6 @@ Choose **one** of the two options below:
      mongodb+srv://servicedesk_user:<password>@cluster0.abc123.mongodb.net/?retryWrites=true&w=majority
      ```
    - Replace `<password>` with your actual password
-     
-
----
 
 ### Step 4 — Configure environment variables
 
@@ -121,8 +135,6 @@ CLIENT_URL=http://localhost:3000
 ANTHROPIC_API_KEY=sk-ant-your-key-here
 ```
 
----
-
 ### Step 5 — Run the project
 
 ```bash
@@ -135,8 +147,6 @@ This starts both servers concurrently:
 - **Frontend app:** http://localhost:3000
 
 Open http://localhost:3000 in your browser.
-
----
 
 ### Step 6 — Create your first admin user
 
@@ -178,8 +188,6 @@ db.users.updateOne(
 | Frontend | Vercel | Free tier, auto-deploy from GitHub |
 | Backend | Railway or Render | Free tier available |
 | Database | MongoDB Atlas | M0 free tier for low traffic; M10+ for production SLA |
-
----
 
 ### Deploy to Production
 
@@ -239,7 +247,7 @@ Once both are deployed, update `CLIENT_URL` in Railway to your Vercel frontend U
 
 ---
 
-### Production Checklist
+## Production Checklist
 
 - [ ] `NODE_ENV=production` set on backend
 - [ ] `MONGODB_URI` points to Atlas M10+ cluster
@@ -251,6 +259,7 @@ Once both are deployed, update `CLIENT_URL` in Railway to your Vercel frontend U
 - [ ] Create a test ticket and verify SLA deadline is set
 - [ ] Promote first user to admin via Atlas
 - [ ] Reports dashboard loads (admin/tier roles only)
+- [ ] No `.env` files or secrets in version control
 
 ---
 
@@ -272,8 +281,7 @@ itil-servicedesk/
 │   │   ├── report.controller.js     ← Phase 6 (new)
 │   │   ├── audit.controller.js
 │   │   ├── knowledge.controller.js
-│   │   ├── notification.controller.js
-│   │   └── escalation.controller.js
+│   │   └── notification.controller.js
 │   ├── middleware/
 │   │   ├── auth.middleware.js        JWT verify + RBAC
 │   │   └── error.middleware.js       Global error handler
@@ -337,7 +345,7 @@ itil-servicedesk/
 ├── .github/workflows/deploy.yml    CI/CD pipeline
 ├── package.json                    Root scripts (dev, install:all)
 ├── .gitignore
-└── README.md
+�└── README.md
 ```
 
 ---
@@ -345,6 +353,7 @@ itil-servicedesk/
 ## API Reference
 
 ### Auth
+
 | Method | Endpoint | Body | Description |
 |--------|----------|------|-------------|
 | POST | `/api/auth/register` | `{name, email, password, role?, department?}` | Register |
@@ -353,6 +362,7 @@ itil-servicedesk/
 | GET | `/api/auth/me` | — | Get current user |
 
 ### Tickets
+
 | Method | Endpoint | Role | Description |
 |--------|----------|------|-------------|
 | GET | `/api/tickets` | all | List tickets (end_user sees own only) |
@@ -365,18 +375,20 @@ itil-servicedesk/
 | DELETE | `/api/tickets/:id` | admin | Delete ticket |
 
 ### Reports (Phase 6 — tier1+)
+
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | `/api/reports/summary` | Full analytics overview |
-| GET | `/api/reports/sla-compliance` | SLA breach rate by priority |
-| GET | `/api/reports/ticket-volume?granularity=daily\|weekly\|monthly` | Volume over time |
-| GET | `/api/reports/agent-performance` | Per-agent KPIs |
-| GET | `/api/reports/category-breakdown` | Tickets by category |
-| GET | `/api/reports/audit-export?format=csv\|json` | Download audit log |
+| GET | `/api/reports/sla-compliance` | Full analytics overview |
+| GET | `/api/reports/ticket-volume` | SLA breach rate by priority |
+| GET | `/api/reports/agent-performance` | Volume over time |
+| GET | `/api/reports/category-breakdown` | Per-agent KPIs |
+| GET | `/api/reports/audit-log/export` | Tickets by category |
+|  |  | Download audit log (CSV/JSON) |
 
 All report endpoints support `?from=ISO_DATE&to=ISO_DATE`.
 
 ### Other
+
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | `/api/analytics` | Analytics data |
@@ -420,3 +432,24 @@ SLA checks run every 60 seconds. At 75% elapsed → Tier 2 escalation. At 90% el
 
 **Port 5000 already in use**
 → Change `PORT=5001` in `backend/.env` and update the proxy in `frontend/package.json` to `"proxy": "http://localhost:5001"`.
+
+---
+
+## Development Commands
+
+```bash
+# Backend dev
+cd backend && npm run dev
+
+# Frontend dev
+cd frontend && npm start
+
+# Run backend tests
+cd backend && npm test
+
+# Run frontend tests
+cd frontend && npm test
+
+# Check for security vulnerabilities
+npm audit --audit-level=moderate
+```
